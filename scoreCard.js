@@ -3,21 +3,15 @@ var holes = 18;
 
 function buildCard(holes) {
     var rowNumber = 1;
-    document.getElementById("scoreCard").innerHTML = "<div id='row"+ rowNumber +"' >Row</div>";
+    document.getElementById("scoreCard").innerHTML = "<div class='row' id='row"+rowNumber+"'></div>";
 
     for (var i = 1; i <= holes; i++) {
 
+        document.getElementById('row' + rowNumber).innerHTML += "<div class='col-md-4 hole' id='hole"+ i +"' > Hole "+i+" </div>";
         if (i % 3 == 0){
             rowNumber++;
-            document.getElementById("scoreCard").innerHTML += "<div id='row"+ rowNumber +"' >Row</div>";
+            document.getElementById("scoreCard").innerHTML += "<div class='row'  id='row"+ rowNumber +"' ></div>";
         }
-
-        var currentRow = "row" + rowNumber;
-        var currentHole = "hole" + i;
-        console.log("Row " +currentRow)
-        console.log("Hole" + currentHole);
-        document.getElementById(currentRow).innerHTML += "<div id='hole"+ currentHole +"' >Hole</div>";
-
     }
 }
 

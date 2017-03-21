@@ -1,7 +1,31 @@
 var getDataService = {
     getCourses: getCourses,
+    getSpecificCourse: getSpecificCourse,
     getWeather: getWeather
 };
+
+function getSpecificCourse(courseID){
+    return new Promise(execute);
+
+    function execute(resolve, reject){
+        var httpRequest = new XMLHttpRequest();
+        var course = {};
+        console.log(course);
+
+        httpRequest.onreadystatechange = function () {
+            if (httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200){
+                var data = JSON.parse(httpRequest.responseText);
+                course = data;
+                resolve(course);
+            }
+        };
+
+        httpRequest.open("GET", "https://golf-courses-api.herokuapp.com/courses/" + courseID , true);
+        httpRequest.send();
+
+    }
+
+}
 
 function getWeather(zipCode){
     return new Promise(execute);
@@ -14,10 +38,9 @@ function getWeather(zipCode){
                 resolve(globalWeather);
             }
         };
-        xhttp.open("GET", "http://api.openweathermap.org/data/2.5/weather?zip="+ zipCode +"&appid=cc8ef8e5c209d938ab3801daa42b5e31", true);
+        xhttp.open("GET", "http://api.openweathermap.org/data/2.5/weather?zip="+ zipCode +"&units=imperial&appid=cc8ef8e5c209d938ab3801daa42b5e31", true);
         xhttp.send();
     }
-
 }
 
 function getCourses(latitude, longitude, radius){
@@ -30,9 +53,7 @@ function getCourses(latitude, longitude, radius){
         httpRequest.onreadystatechange = function () {
             if (httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200){
                 var data = JSON.parse(httpRequest.responseText);
-                document.getElementById("background").innerText = data;
                 courses = data;
-                // console.log(courses);
                 resolve(courses);
             }
         };
