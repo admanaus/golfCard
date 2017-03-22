@@ -1,8 +1,11 @@
 var getDataService = {
     getCourses: getCourses,
     getSpecificCourse: getSpecificCourse,
-    getWeather: getWeather
+    getWeather: getWeather,
+    buildCard: buildCard
+
 };
+
 
 function getSpecificCourse(courseID){
     return new Promise(execute);

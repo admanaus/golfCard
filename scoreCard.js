@@ -1,4 +1,5 @@
 
+
 var holes = 18;
 
 function buildCard(holes) {
@@ -7,7 +8,7 @@ function buildCard(holes) {
 
     for (var i = 1; i <= holes; i++) {
 
-        document.getElementById('row' + rowNumber).innerHTML += "<div class='col-md-4 hole' id='hole"+ i +"' > Hole "+i+" </div>";
+        document.getElementById('row' + rowNumber).innerHTML += "<div class='col-md-4 hole' id='hole"+ i +"' > <div class='well'>Hole "+i+" </div></div>";
         if (i % 3 == 0){
             rowNumber++;
             document.getElementById("scoreCard").innerHTML += "<div class='row'  id='row"+ rowNumber +"' ></div>";

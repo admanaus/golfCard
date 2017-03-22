@@ -5,7 +5,7 @@ coursesPromise.then(function(courses){
     // console.log(courses);
     // console.log(courses.courses[0].name);
     for (var i = 0; i < courses.courses.length; i++) {
-        document.getElementById('coursesDropdown').innerHTML += "<li><a class='dropdown-item' value='"+courses.courses[i].id+"' href='#'>"+courses.courses[i].name+"</a></li>";
+        document.getElementById('coursesDropdown').innerHTML += "<li><a class='dropdown-item' value='"+courses.courses[i].id+"' onclick='getSecectedCourse("+courses.courses[i].id+")' >"+courses.courses[i].name+"</a></li>";
         // console.log(courses.courses[i].name);
 
     }
@@ -14,14 +14,23 @@ coursesPromise.then(function(courses){
 
 });
 
-var specificCoursePromise = getDataService.getSpecificCourse(49557);
+function getSecectedCourse(courseID){
 
-specificCoursePromise.then(function (course) {
-    console.log(course);
-    // console.log(course.course.description);
-    document.getElementById('courseName').innerHTML = "<h2>"+ course.course.name +"</h2>";
-});
+    var specificCoursePromise = getDataService.getSpecificCourse(courseID);
 
+    specificCoursePromise.then(function (course) {
+        console.log(course);
+        // console.log(course.course.description);
+        document.getElementById('courseName').innerHTML = "<h2>"+ course.course.name +"</h2>";
+
+        var holes = course.course.holes.length;
+
+        buildCard(holes);
+
+    });
+
+
+}
 
 var weatherPromise = getDataService.getWeather(84097);
 
@@ -34,6 +43,19 @@ weatherPromise.then(function (globalWeather) {
 
 
 
+function buildCard(holes) {
+    var rowNumber = 1;
+    document.getElementById("scoreCard").innerHTML = "<div class='row' id='row"+rowNumber+"'></div>";
+
+    for (var i = 1; i <= holes; i++) {
+
+        document.getElementById('row' + rowNumber).innerHTML += "<div class='col-md-4 hole' id='hole"+ i +"' > <div class='well'>Hole "+i+" </div></div>";
+        if (i % 3 == 0){
+            rowNumber++;
+            document.getElementById("scoreCard").innerHTML += "<div class='row'  id='row"+ rowNumber +"' ></div>";
+        }
+    }
+}
 
 
 
