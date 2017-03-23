@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="custom.css">
+    <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
 <!--<div id="background">-->
@@ -34,8 +34,10 @@
 
 <div class="container">
     <div class="row"  id="welcome">
-        <div class="col-md-4" id="courseName"></div>
+        <div class="col-md-4" id="courseName">Select a nearby course above.</div>
+        <div class="col-md-4 map" id="map"></div>
         <div class="col-md-4" id="weatherDescription"></div>
+        <div class="col-md-4 map" id="courseMap"></div>
     </div>
 </div>
 
@@ -44,9 +46,14 @@
 <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>-->
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script type="text/javascript" src="getDataService.js"></script>
-<script type="text/javascript" src="ajax.js"></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfZrgZnLbylDkqBfdx35fy5y7Odl8cIUY&callback=initMap"
+        type="text/javascript">
+</script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/getDataService.js"></script>
+<script type="text/javascript" src="js/mapsService.js"></script>
+<script type="text/javascript" src="js/ajax.js"></script>
 <!--<script type="text/javascript" src="scoreCard.js"></script>-->
 </body>
 </html>
