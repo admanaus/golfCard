@@ -16,8 +16,8 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="#">Golf Score Card</a>
         </div>
-        <ul class="nav navbar-nav">
-
+        <ul class="nav navbar-nav" id="topNavBar">
+            <h2 id="findingLocation">Finding your location...</h2>
             <li class="active">
                 <div class="dropdown" style="padding: 15px 15px">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -34,16 +34,22 @@
                     <div class="dropdown-menu" id="teeDropdown" aria-labelledby="dropdownMenuButton"></div>
                 </div>
             </li>
+            <li class="active">
+                <div class="dropdown" style="padding: 15px 15px">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Select Number of Players <span class="caret"></span>
+                    </button>
+                    <div class="dropdown-menu" id="teeDropdown" aria-labelledby="dropdownMenuButton"></div>
+                </div>
+            </li>
         </ul>
     </div>
 </nav>
-<div id="lat">Test</div>
-<div id="lng">Drive</div>
 
 <div class="container">
     <div class="row"  id="welcome">
         <div class="col-md-4" id="courseName">Select a nearby course above.</div>
-        <!--<div class="col-md-4 map" id="map"></div>-->
+        <div class="col-md-4 map" id="map"></div>
         <div class="col-md-4" id="weatherDescription"></div>
         <!--<div class="col-md-4 map" id="courseMap"></div>-->
     </div>
@@ -51,17 +57,18 @@
 
 <div class="container" id="scoreCard"></div>
 
-<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<!--<script async defer-->
-        <!--src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfZrgZnLbylDkqBfdx35fy5y7Odl8cIUY&callback=initMap"-->
-        <!--type="text/javascript">-->
-<!--</script>-->
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfZrgZnLbylDkqBfdx35fy5y7Odl8cIUY"
+        type="text/javascript">
+</script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/getDataService.js"></script>
 <script type="text/javascript" src="js/mapsService.js"></script>
 <script type="text/javascript" src="js/golfCard.js"></script>
+<script type="text/javascript" src="js/HTMLService.js"></script>
 <!--<script type="text/javascript" src="scoreCard.js"></script>-->
 </body>
 </html>
